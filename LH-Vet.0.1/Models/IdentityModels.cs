@@ -29,5 +29,11 @@ namespace LH_Vet._0._1.Models
         {
             return new ApplicationDbContext();
         }
+
+        public System.Data.Entity.DbSet<LH_Vet._0._1.Models.Appointment> Appointments { get; set; }
+
+        public System.Data.Entity.DbSet<LH_Vet._0._1.Models.Patient> Patients { get; set; }
+
+        public System.Data.Entity.DbSet<LH_Vet._0._1.Models.AppointmentToPatient> AppointmentsToPatients { get; set; }
     }
 }
