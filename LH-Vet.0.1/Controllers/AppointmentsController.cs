@@ -88,6 +88,7 @@ namespace LH_Vet._0._1.Controllers
         }
 
         // GET: Appointments/Edit/5
+        [Authorize(Roles = "CanManageAppointments")]
         public ActionResult Edit(int? id)
         {
             if (id == null)

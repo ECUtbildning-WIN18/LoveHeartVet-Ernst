@@ -9,6 +9,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using LH_Vet._0._1.Models;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace LH_Vet._0._1.Controllers
 {
@@ -155,6 +156,12 @@ namespace LH_Vet._0._1.Controllers
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
+                    //var roleStore = new RoleStore<IdentityRole>(new ApplicationDbContext());
+                    //var roleManager = new RoleManager<IdentityRole>(roleStore);
+                    ////This is an async method so we need to await it.
+                    //await roleManager.CreateAsync(new IdentityRole("CanManageAppointments"));
+                    //await UserManager.AddToRoleAsync(user.Id, "CanManageAppointments");
+
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
                     
                     // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771
